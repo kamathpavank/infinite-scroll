@@ -1,0 +1,24 @@
+.login{
+    width: 25%;
+    margin: 150px auto;
+    padding: 10px;
+    background-color: #fcfcfc;
+}
+
+.login form{
+    margin-bottom: 15px;
+    background-color: #fcfcfc;
+    box-shadow: 0p 2ppx 2px rgba(0,0,0,0.3);
+    padding: 30px;
+}
+
+.form-control{
+    margin-bottom: 15px;
+}
+
+
+.btn{
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+}
