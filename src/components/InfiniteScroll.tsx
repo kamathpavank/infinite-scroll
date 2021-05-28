@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 interface Props {
-	history:any
+  history: any;
 }
 
 export const InfiniteScroll = (props: Props) => {
@@ -46,21 +46,34 @@ export const InfiniteScroll = (props: Props) => {
       });
   }, [pageNumber]);
 
-  const logout = () =>{
-	  localStorage.clear()
-	  props.history.push('/login')
-  }
+  const logout = (e:any) => {
+    e.preventDefault()
+    localStorage.clear();
+    props.history.push("/login");
+  };
   return (
     <>
-      <nav className="navbar bg-light">
-        <div className="d-flex justify-content-center container">
+      {/* <nav className="navbar bg-light">
+        <div className="d-flex justify-content-around container">
           <a className="navbar-brand" href="/home">
             <h2>Infinite scroll</h2>
           </a>
         </div>
-        <button type="button" onClick={logout} className="btn btn-primary"> Logout</button>
+        <button type="button" onClick={logout} style={{float:'right'}} className="btn btn-primary"> Logout</button>
+
+      </nav> */}
+      <nav className="navbar navbar-light bg-light justify-content-between">
+        <a className="navbar-brand">Infinte Scroll</a>
+        <form onSubmit={logout} className="form-inline">
+          <button
+            className="btn btn-outline-primary my-2 my-sm-0"
+            type="submit"
+          >
+            Logout
+          </button>
+        </form>
       </nav>
-	  
+
       <div id="images" className="container">
         <div className="row">
           {imageData.images.map((image: any, index: any) => {
