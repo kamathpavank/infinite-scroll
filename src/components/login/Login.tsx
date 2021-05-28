@@ -16,7 +16,7 @@ export const Login = (props: Props) => {
     if (!values.password) {
       errors.password = "Required";
     }
-
+	
     return errors;
   };
 
@@ -45,10 +45,10 @@ export const Login = (props: Props) => {
               aria-describedby="emailHelp"
               placeholder="Enter Username"
               onChange={formik.handleChange}
-              value={formik.values.username}
+			  value={formik.values.username}
             />
             {formik.errors.username ? (
-              <div className="invalid-feedback">Please Enter Username</div>
+              <div className="text-danger mb-1 mt-0">Please Enter Username</div>
             ) : null}
 
             {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
@@ -61,10 +61,10 @@ export const Login = (props: Props) => {
               id="password"
               placeholder="Enter Password"
               onChange={formik.handleChange}
-              value={formik.values.password}
+			  value={formik.values.password}
             />
 			{formik.errors.password ? (
-              <div className="invalid-feedback">Please Enter Password</div>
+              <div className="text-danger mb-1 mt-0">Please Enter Password</div>
             ) : null}
           </div>
           <button type="submit" className="btn btn-primary">

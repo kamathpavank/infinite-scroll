@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 
-interface Props {}
+interface Props {
+	history:any
+}
 
 export const InfiniteScroll = (props: Props) => {
   const [imageData, setimageData] = useState<any>({
@@ -43,15 +45,22 @@ export const InfiniteScroll = (props: Props) => {
         return e;
       });
   }, [pageNumber]);
+
+  const logout = () =>{
+	  localStorage.clear()
+	  props.history.push('/login')
+  }
   return (
     <>
       <nav className="navbar bg-light">
         <div className="d-flex justify-content-center container">
-          <a className="navbar-brand" href="/#">
+          <a className="navbar-brand" href="/home">
             <h2>Infinite scroll</h2>
           </a>
         </div>
+        <button type="button" onClick={logout} className="btn btn-primary"> Logout</button>
       </nav>
+	  
       <div id="images" className="container">
         <div className="row">
           {imageData.images.map((image: any, index: any) => {
