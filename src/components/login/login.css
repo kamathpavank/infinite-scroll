@@ -1,24 +1,35 @@
-.login{
-    width: 25%;
-    margin: 150px auto;
-    padding: 10px;
-    background-color: #fcfcfc;
+.login {
+  width: 30%;
+  margin: 150px auto;
+  padding: 10px;
+  background-color: #fcfcfc;
 }
 
-.login form{
-    margin-bottom: 15px;
-    background-color: #fcfcfc;
-    box-shadow: 0p 2ppx 2px rgba(0,0,0,0.3);
-    padding: 30px;
+.login form {
+  margin-bottom: 15px;
+  background-color: #fcfcfc;
+  box-shadow: 0p 2ppx 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
-.form-group{
-    margin-bottom: 25px;
+.form-group {
+  margin-bottom: 25px;
 }
 
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+}
 
-.btn{
-    font-size: 15px;
-    font-weight: bold;
+@media screen and (max-width: 550px) {
+  .login {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 551px) and (max-width: 768px) {
+  .login {
+    width: 70%;
+  }
 }
