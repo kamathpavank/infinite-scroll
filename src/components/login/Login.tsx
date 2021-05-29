@@ -1,12 +1,15 @@
 import React from "react";
 import { useFormik } from "formik";
 import "./login.css";
+import { useHistory } from "react-router-dom";
+import { LoginForm } from "../../types/loginForm";
 
-interface Props {
-  history: any;
-}
+interface Props {}
 
 export const Login = (props: Props) => {
+  const initialValues: LoginForm = { username: "", password: "" };
+
+  let history = useHistory();
   const validate = (values: any) => {
     const errors: any = {};
     if (!values.username) {
@@ -16,19 +19,16 @@ export const Login = (props: Props) => {
     if (!values.password) {
       errors.password = "Required";
     }
-	
+
     return errors;
   };
 
   const formik = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-    },
+    initialValues: initialValues,
     validate,
     onSubmit: (values) => {
       localStorage.setItem("token", "asdaedasdasdaxasx");
-      props.history.push("/home");
+      history.push("/home");
     },
   });
   return (
@@ -45,7 +45,7 @@ export const Login = (props: Props) => {
               aria-describedby="emailHelp"
               placeholder="Enter Username"
               onChange={formik.handleChange}
-			  value={formik.values.username}
+              value={formik.values.username}
             />
             {formik.errors.username ? (
               <div className="text-danger mb-1 mt-0">Please Enter Username</div>
@@ -61,9 +61,9 @@ export const Login = (props: Props) => {
               id="password"
               placeholder="Enter Password"
               onChange={formik.handleChange}
-			  value={formik.values.password}
+              value={formik.values.password}
             />
-			{formik.errors.password ? (
+            {formik.errors.password ? (
               <div className="text-danger mb-1 mt-0">Please Enter Password</div>
             ) : null}
           </div>

@@ -1,14 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 
-interface Props {
-  history: any;
+type Props = {}
+
+type imageData = {
+	images:any[]
 }
 
 export const InfiniteScroll = (props: Props) => {
-  const [imageData, setimageData] = useState<any>({
+  let history = useHistory();
+  const [imageData, setimageData] = useState<imageData>({
     images: [],
   });
-  const [isFetching, setisFetching] = useState(true);
+  const [isFetching, setisFetching] = useState<boolean>(true);
   const [pageNumber, setpageNumber] = useState<number>(0);
 
   let bottomBoundaryRef: any = useRef(null);
@@ -45,22 +49,13 @@ export const InfiniteScroll = (props: Props) => {
       });
   }, [pageNumber]);
 
-  const logout = (e:any) => {
-    e.preventDefault()
+  const logout = (e: any) => {
+    e.preventDefault();
     localStorage.clear();
-    props.history.push("/login");
+    history.push("/login");
   };
   return (
     <>
-      {/* <nav className="navbar bg-light">
-        <div className="d-flex justify-content-around container">
-          <a className="navbar-brand" href="/home">
-            <h2>Infinite scroll</h2>
-          </a>
-        </div>
-        <button type="button" onClick={logout} style={{float:'right'}} className="btn btn-primary"> Logout</button>
-
-      </nav> */}
       <nav className="navbar navbar-light bg-light justify-content-between">
         <a className="navbar-brand">Infinte Scroll</a>
         <form onSubmit={logout} className="form-inline">

@@ -13,7 +13,6 @@ const AdminRoutes: React.FC<AuthRoutesProps> =({children,...rest})=>{
   let isLogged:boolean
 
   const token = localStorage.getItem('token')
-  const role = localStorage.getItem('role')  
   if(token){
     isLogged = true
   }else{
