@@ -13,7 +13,7 @@ const AdminRoutes: React.FC<AuthRoutesProps> =({children,...rest})=>{
   let isLogged:boolean
 
   const token = localStorage.getItem('token')
-  const role = localStorage.getItem('role')
+  const role = localStorage.getItem('role')  
   if(token){
     isLogged = true
   }else{
@@ -40,6 +40,9 @@ function App() {
   return (
     <>
       <Switch>
+        <Route exact path="/">
+         <Redirect to="/home"/>
+        </Route>
         <Route path="/login" component={Login} />
         <AdminRoutes>
           <Route path="/home" component={InfiniteScroll} />

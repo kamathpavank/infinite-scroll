@@ -32,7 +32,6 @@ export const InfiniteScroll = (props: Props) => {
     fetch(`https://picsum.photos/v2/list?page=${pageNumber}&limit=10`)
       .then((data) => data.json())
       .then((images) => {
-        console.log(images, "data");
         setisFetching(false);
         const newImageData = {
           ...imageData,
@@ -77,9 +76,9 @@ export const InfiniteScroll = (props: Props) => {
       <div id="images" className="container">
         <div className="row">
           {imageData.images.map((image: any, index: any) => {
-            const { author, download_url } = image;
+            const { author, download_url, id } = image;
             return (
-              <div className="col-lg-4 col-md-3 col-sm-12">
+              <div key={id} className="col-lg-4 col-md-3 col-sm-12">
                 <div key={index} className="card" id="image-card">
                   <div className="card-body ">
                     <img
