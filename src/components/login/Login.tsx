@@ -36,7 +36,7 @@ export const Login = (props: Props) => {
       <div className="login">
         <form onSubmit={formik.handleSubmit}>
           <h5 className="card-title text-center">Login</h5>
-
+          <p className="text-secondary text-center mt-1 mb-3">Enter random username and password to login</p>
           <div className="form-group">
             <input
               type="text"
